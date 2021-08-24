@@ -1,0 +1,37 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">Company details</h1>
+    <div class="generic-container content--lg">
+      <div>
+        <strong>Name:</strong>
+        <%= @company.name %>
+      </div>
+
+      <div>
+        <strong>Description:</strong>
+        <%= @company.description %>
+      </div>
+
+      <div>
+        <strong>Start date:</strong>
+        <%= @company.start_date %>
+      </div>
+
+      <div>
+        <strong>Country:</strong>
+        <%= @company.country %>
+      </div>
+
+      <div>
+        <strong>Games count:</strong>
+        <%= @company.games_count %>
+      </div>
+      <div>
+        <%= link_to 'Edit', edit_company_path(@company) %> |
+        <%= link_to 'Back', companies_path %>
+      </div>
+    </div>
+  </div>
+</section>
+
+

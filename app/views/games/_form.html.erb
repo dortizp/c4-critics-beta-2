@@ -1,0 +1,84 @@
+<%= form_with(model: game, class: "generic-container") do |form| %>
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :name, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_field :name, class: "input__content", placeholder: "Magic Game" %>
+      </div>
+      <% if game.errors.messages[:name].any? %>
+      <span class="content--sm input__error-message">
+        <%= game.errors.messages[:name].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :summary, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_area :summary, class: "input__content", placeholder: "About game SA..." %>
+      </div>
+      <% if game.errors.messages[:summary].any? %>
+      <span class="content--sm input__error-message">
+        <%= game.errors.messages[:summary].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :release_date, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.date_field :release_date, class: "input__content" %>
+      </div>
+      <% if game.errors.messages[:release_date].any? %>
+      <span class="content--sm input__error-message">
+        <%= game.errors.messages[:release_date].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :rating, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.number_field :rating, step: 0.1, class: "input__content" %>
+      </div>
+      <% if game.errors.messages[:rating].any? %>
+      <span class="content--sm input__error-message">
+        <%= game.errors.messages[:rating].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="select">
+      <%= form.label :category, class:"content--xs overline"%>
+      <%= form.select :category, Game.categories.keys, { prompt: true }, { class: "select__input" } %>
+      <% if game.errors.messages[:category].any? %>
+      <span class="content--sm input__error-message">
+        <%= game.errors.messages[:category].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="select">
+      <%= form.label :parent_id, class:"content--xs overline"%>
+      <%= form.collection_select :parent_id, Game.main_game, :id, :name, { include_blank: "Please select" }, { class: "select__input" } %>
+      <% if game.errors.messages[:parent].any? %>
+      <span class="content--sm input__error-message">
+        <%= game.errors.messages[:parent].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form.submit class: "btn btn--primary btn--fit-content" %>
+
+<% end %>

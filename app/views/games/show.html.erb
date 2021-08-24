@@ -1,0 +1,80 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">Game details</h1>
+    <div class="generic-container content--lg">
+      <div>
+        <strong>Name:</strong>
+        <%= @game.name %>
+      </div>
+
+      <div>
+        <strong>Summary:</strong>
+        <%= @game.summary %>
+      </div>
+
+      <div>
+        <strong>Release date:</strong>
+        <%= @game.release_date %>
+      </div>
+
+      <div>
+        <strong>Rating:</strong>
+        <%= @game.rating %>
+      </div>
+
+      <div>
+        <strong>Category:</strong>
+        <%= @game.category %>
+      </div>
+
+      <div>
+        <strong>Parent:</strong>
+        <%= @game.parent&.name  %>
+      </div>
+
+      <div>
+        <strong>Genres:</strong>
+        <ul>
+          <% @game.genres.each do |genre| %>
+          <li><%= genre.name%> | <%= link_to 'remove', remove_genre_game_path(@game, genre_id: genre.id), method: :delete  %></li>
+          <% end %>
+          <li>
+            <%= form_with(url: add_genre_game_path(@game), class: "generic-container flex-row") do |form| %>
+              <div class="flex gap-16">
+                <div class="select">
+                  <%= form.collection_select :genre_id, (Genre.all - @game.genres), :id, :name, { prompt: true }, { class: "select__input" } %>
+                </div>
+              </div>
+              <%= form.submit "Add genre", class: "btn btn--primary btn--fit-content" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <strong>Platforms:</strong>
+        <ul>
+          <% @game.platforms.each do |platform| %>
+          <li><%= platform.name%> | <%= link_to 'remove', remove_platform_game_path(@game, platform_id: platform.id), method: :delete  %></li>
+          <% end %>
+          <li>
+            <%= form_with(url: add_platform_game_path(@game), class: "generic-container flex-row") do |form| %>
+              <div class="flex gap-16">
+                <div class="select">
+                  <%= form.collection_select :platform_id, (Platform.all - @game.platforms), :id, :name, { prompt: true }, { class: "select__input" } %>
+                </div>
+              </div>
+              <%= form.submit "Add platform", class: "btn btn--primary btn--fit-content" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <%= link_to 'Edit', edit_game_path(@game) %> |
+        <%= link_to 'Back', games_path %>
+      </div>
+    </div>
+  </div>
+</section>
+
+

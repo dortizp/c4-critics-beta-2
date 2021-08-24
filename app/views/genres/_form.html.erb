@@ -1,0 +1,18 @@
+<%= form_with(model: genre, class: "generic-container") do |form| %>
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :name, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_field :name, class: "input__content", placeholder: "Action" %>
+      </div>
+      <% if genre.errors.messages[:name].any? %>
+      <span class="content--sm input__error-message">
+        <%= genre.errors.messages[:name].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form.submit class: "btn btn--primary btn--fit-content" %>
+
+<% end %>

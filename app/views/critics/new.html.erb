@@ -1,0 +1,11 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">
+      New Critic for <%= @critic.criticable_type%>: <%= @critic.criticable.name%>
+    </h1>
+
+    <%= render 'shared/criticable_form', critic: @critic %>
+
+    <%= link_to 'Back', critics_path %>
+  </div>
+</section>

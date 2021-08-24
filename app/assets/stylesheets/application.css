@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "./global.css";
+@import "./components/button.css";
+@import "./components/cta.css";
+@import "./components/icon.css";
+@import "./components/navbar.css";
+@import "./components/input.css";
+@import "./components/forms.css";
+
+/* index.html */
+.headings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.buttons-container {
+  padding: 16px;
+}
+
+.button-row {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  align-items: center;
+}
+
+.best-jobs-list {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  list-style: none;
+}
+
+.best-jobs-list li {
+  padding-left: 48px;
+  background-image: url(/images/icons/check-splash.svg);
+  background-size: 32px;
+  background-repeat: no-repeat;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.generic-container {
+  padding: 16px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

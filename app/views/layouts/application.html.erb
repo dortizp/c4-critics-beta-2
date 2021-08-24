@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="shadow">
+      <div class="navbar">
+        <div class="navbar__left">
+          <a href="/" class="navbar__logo">
+            <img src="/images/logo.png" />
+          </a>
+          <ul class="navbar__item-list">
+            <li class="navbar__item">
+              <%= link_to 'Users', users_path, class: "navbar__link" %>
+            </li>
+            <li class="navbar__item">
+              <%= link_to 'Companies', companies_path, class: "navbar__link" %>
+            </li>
+            <li class="navbar__item">
+              <%= link_to 'Genres', genres_path, class: "navbar__link" %>
+            </li>
+            <li class="navbar__item">
+              <%= link_to 'Platforms', platforms_path, class: "navbar__link" %>
+            </li>
+            <li class="navbar__item">
+              <%= link_to 'Games', games_path, class: "navbar__link" %>
+            </li>
+            <li class="navbar__item">
+              <%= link_to 'Involved Companies', involved_companies_path, class: "navbar__link" %>
+            </li>
+            <li class="navbar__item">
+              <%= link_to 'Critics', critics_path, class: "navbar__link" %>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar__right align-center">
+        </div>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>

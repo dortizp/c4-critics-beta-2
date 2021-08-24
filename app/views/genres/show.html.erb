@@ -1,0 +1,16 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">Genre details</h1>
+    <div class="generic-container content--lg">
+      <div>
+        <strong>Name:</strong>
+        <%= @genre.name %>
+      </div>
+      <div>
+        <%= link_to 'Edit', edit_genre_path(@genre) %> |
+        <%= link_to 'Back', genres_path %>
+      </div>
+    </div>
+  </div>
+</section>
+

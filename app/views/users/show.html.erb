@@ -1,0 +1,41 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">User details</h1>
+    <div class="generic-container content--lg">
+      <div>
+        <strong>Username:</strong>
+        <%= @user.username %>
+      </div>
+
+      <div>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </div>
+
+      <div>
+        <strong>Birth date:</strong>
+        <%= @user.birth_date %>
+      </div>
+
+      <div>
+        <strong>First name:</strong>
+        <%= @user.first_name %>
+      </div>
+
+      <div>
+        <strong>Last name:</strong>
+        <%= @user.last_name %>
+      </div>
+
+      <div>
+        <strong>Critics count:</strong>
+        <%= @user.critics_count %>
+      </div>
+      <div>
+        <%= link_to 'Edit', edit_user_path(@user) %> |
+        <%= link_to 'Back', users_path %>
+      </div>
+    </div>
+  </div>
+</section>
+

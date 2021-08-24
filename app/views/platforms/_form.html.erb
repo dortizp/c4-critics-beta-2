@@ -1,0 +1,30 @@
+<%= form_with(model: platform, class: "generic-container") do |form| %>
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :name, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_field :name, class: "input__content", placeholder: "Super Play Station XP" %>
+      </div>
+      <% if platform.errors.messages[:name].any? %>
+      <span class="content--sm input__error-message">
+        <%= platform.errors.messages[:name].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="select">
+      <%= form.label :category, class:"content--xs overline"%>
+      <%= form.select :category, Platform.categories.keys, { prompt: true }, { class: "select__input" } %>
+      <% if platform.errors.messages[:category].any? %>
+      <span class="content--sm input__error-message">
+        <%= platform.errors.messages[:category].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form.submit class: "btn btn--primary btn--fit-content" %>
+
+<% end %>

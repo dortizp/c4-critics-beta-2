@@ -1,0 +1,33 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">Companies</h1>
+
+    <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">name</th>
+          <th scope="col">Games count</th>
+          <th scope="colgroup" colspan="3">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @companies.each do |company| %>
+          <tr>
+            <td><%= company.name %></td>
+            <td><%= company.games_count %></td>
+            <td><%= link_to 'Show', company %></td>
+            <td><%= link_to 'Edit', edit_company_path(company) %></td>
+            <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+
+    <br>
+
+    <%= link_to 'New company', new_company_path, class: "btn btn--primary btn--fit-content" %>
+  </div>
+</section>

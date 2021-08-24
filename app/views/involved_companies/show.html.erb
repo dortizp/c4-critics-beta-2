@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @involved_company.game_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @involved_company.company_id %>
+</p>
+
+<p>
+  <strong>Developer:</strong>
+  <%= @involved_company.developer %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @involved_company.publisher %>
+</p>
+
+<%= link_to 'Edit', edit_involved_company_path(@involved_company) %> |
+<%= link_to 'Back', involved_companies_path %>

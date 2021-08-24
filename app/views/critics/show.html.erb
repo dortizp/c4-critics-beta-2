@@ -1,0 +1,31 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">
+      Critic details:
+    </h1>
+    <div class="generic-container content--lg">
+      <div>
+        <strong><%= @critic.criticable_type%>:</strong>
+        <%= @critic.criticable.name%>
+      </div>
+      <div>
+        <strong>Title:</strong>
+        <%= @critic.title %>
+      </div>
+
+      <div>
+        <strong>Body:</strong>
+        <%= @critic.body %>
+      </div>
+
+      <div>
+        <strong>User:</strong>
+        <%= @critic.user.username %>
+      </div>
+      <div>
+        <%= link_to 'Edit', edit_critic_path(@critic) %> |
+        <%= link_to 'Back', critics_path %>
+      </div>
+    </div>
+  </div>
+</section>

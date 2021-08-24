@@ -1,0 +1,56 @@
+<%= form_with(model: involved_company, class: "generic-container") do |form| %>
+  <div class="flex gap-16 mb-8">
+    <div class="select">
+      <%= form.label :game_id, class:"content--xs overline"%>
+      <%= form.collection_select :game_id, Game.all, :id, :name, { prompt: true }, { class: "select__input" } %>
+      <% if involved_company.errors.messages[:game].any? %>
+      <span class="content--sm input__error-message">
+        <%= involved_company.errors.messages[:game].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="select">
+      <%= form.label :company_id, class:"content--xs overline"%>
+      <%= form.collection_select :company_id, Company.all, :id, :name, { prompt: true }, { class: "select__input" } %>
+      <% if involved_company.errors.messages[:company].any? %>
+      <span class="content--sm input__error-message">
+        <%= involved_company.errors.messages[:company].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <p class="mb-4">Involvement:</p>
+    <div class="checkbox__opt-group">
+      <div class="checkbox">
+        <%= form.check_box :developer, class: "checkbox__input" %>
+        <div class="checkbox__text-container">
+          <%= form.label :developer, class:"content--sm"%>
+          <% if involved_company.errors.messages[:developer].any? %>
+            <span class="content--sm input__error-message">
+              <%= involved_company.errors.messages[:developer].join(", ")%>
+            </span>
+          <% end %>
+        </div>
+      </div>
+      <div class="checkbox">
+        <%= form.check_box :publisher, class: "checkbox__input" %>
+        <div class="checkbox__text-container">
+          <%= form.label :publisher, class:"content--sm"%>
+          <% if involved_company.errors.messages[:publisher].any? %>
+            <span class="content--sm input__error-message">
+              <%= involved_company.errors.messages[:publisher].join(", ")%>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= form.submit class: "btn btn--primary btn--fit-content" %>
+
+<% end %>

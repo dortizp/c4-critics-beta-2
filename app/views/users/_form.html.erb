@@ -1,0 +1,74 @@
+<%= form_with(model: user, class: "generic-container") do |form| %>
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :username, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_field :username, class: "input__content", placeholder: "johndoe" %>
+      </div>
+      <% if user.errors.messages[:username].any? %>
+      <span class="content--sm input__error-message">
+        <%= user.errors.messages[:username].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :email, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.email_field :email, class: "input__content", placeholder: "john@example.com" %>
+      </div>
+      <% if user.errors.messages[:email].any? %>
+      <span class="content--sm input__error-message">
+        <%= user.errors.messages[:email].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :birth_date, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.date_field :birth_date, class: "input__content", placeholder: "john@example.com" %>
+      </div>
+      <% if user.errors.messages[:birth_date].any? %>
+      <span class="content--sm input__error-message">
+        <%= user.errors.messages[:birth_date].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :first_name, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_field :first_name, class: "input__content", placeholder: "John" %>
+      </div>
+      <% if user.errors.messages[:first_name].any? %>
+      <span class="content--sm input__error-message">
+        <%= user.errors.messages[:first_name].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :last_name, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_field :last_name, class: "input__content", placeholder: "Doe" %>
+      </div>
+      <% if user.errors.messages[:last_name].any? %>
+      <span class="content--sm input__error-message">
+        <%= user.errors.messages[:last_name].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form.submit class: "btn btn--primary btn--fit-content" %>
+
+<% end %>

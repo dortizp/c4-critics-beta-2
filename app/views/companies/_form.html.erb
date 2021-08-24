@@ -1,0 +1,60 @@
+<%= form_with(model: company, class: "generic-container") do |form| %>
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :name, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_field :name, class: "input__content", placeholder: "Company SA" %>
+      </div>
+      <% if company.errors.messages[:name].any? %>
+      <span class="content--sm input__error-message">
+        <%= company.errors.messages[:name].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :description, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_area :description, class: "input__content", placeholder: "About Company SA..." %>
+      </div>
+      <% if company.errors.messages[:description].any? %>
+      <span class="content--sm input__error-message">
+        <%= company.errors.messages[:description].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :start_date, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.date_field :start_date, class: "input__content" %>
+      </div>
+      <% if company.errors.messages[:start_date].any? %>
+      <span class="content--sm input__error-message">
+        <%= company.errors.messages[:start_date].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :country, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_field :country, class: "input__content", placeholder: "Peru" %>
+      </div>
+      <% if company.errors.messages[:country].any? %>
+      <span class="content--sm input__error-message">
+        <%= company.errors.messages[:country].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form.submit class: "btn btn--primary btn--fit-content" %>
+
+<% end %>

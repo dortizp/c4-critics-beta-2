@@ -1,0 +1,37 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">Involved Companies</h1>
+
+    <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Game</th>
+          <th scope="col">Company</th>
+          <th scope="col">Developer</th>
+          <th scope="col">Publisher</th>
+          <th scope="colgroup" colspan="3">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @involved_companies.each do |involved_company| %>
+          <tr>
+            <td><%= involved_company.game.name %></td>
+            <td><%= involved_company.company.name %></td>
+            <td><%= involved_company.developer %></td>
+            <td><%= involved_company.publisher %></td>
+            <td><%= link_to 'Show', involved_company %></td>
+            <td><%= link_to 'Edit', edit_involved_company_path(involved_company) %></td>
+            <td><%= link_to 'Destroy', involved_company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+
+    <br>
+
+    <%= link_to 'New involved_company', new_involved_company_path, class: "btn btn--primary btn--fit-content" %>
+  </div>
+</section>

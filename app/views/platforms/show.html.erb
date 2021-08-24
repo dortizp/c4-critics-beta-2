@@ -1,0 +1,20 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">Platform details</h1>
+    <div class="generic-container content--lg">
+      <div>
+        <strong>Name:</strong>
+        <%= @platform.name %>
+      </div>
+      <div>
+        <strong>Category:</strong>
+        <%= @platform.category %>
+      </div>
+      <div>
+        <%= link_to 'Edit', edit_platform_path(@platform) %> |
+        <%= link_to 'Back', platforms_path %>
+      </div>
+    </div>
+  </div>
+</section>
+

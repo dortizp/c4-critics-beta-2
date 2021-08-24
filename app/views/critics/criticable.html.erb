@@ -1,0 +1,28 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">Select the criticable</h1>
+
+    <%= form_with(url: new_critic_path, method: :get, class: "generic-container flex-row") do |form| %>
+      <div class="flex gap-16">
+        <div class="select">
+          <%= form.label :game_id, class:"content--xs overline"%>
+          <%= form.collection_select :game_id, Game.all, :id, :name, { prompt: true }, { class: "select__input" } %>
+        </div>
+      </div>
+      <%= form.submit "Critic this game", class: "btn btn--primary btn--fit-content" %>
+    <% end %>
+
+    <%= form_with(url: new_critic_path, method: :get, class: "generic-container flex-row") do |form| %>
+      <div class="flex gap-16">
+        <div class="select">
+          <%= form.label :company_id, class:"content--xs overline"%>
+          <%= form.collection_select :company_id, Company.all, :id, :name, { prompt: true }, { class: "select__input" } %>
+        </div>
+      </div>
+      <%= form.submit "Critic this company", class: "btn btn--primary btn--fit-content" %>
+    <% end %>
+
+
+    <%= link_to 'Back', critics_path %>
+  </div>
+</section>

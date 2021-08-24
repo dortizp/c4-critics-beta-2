@@ -1,0 +1,37 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">Critics</h1>
+
+    <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">User</th>
+          <th scope="col">Criticable Type</th>
+          <th scope="col">Criticable Name</th>
+          <th scope="colgroup" colspan="3">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @critics.each do |critic| %>
+          <tr>
+            <td><%= critic.title %></td>
+            <td><%= critic.user.username %></td>
+            <td><%= critic.criticable_type %></td>
+            <td><%= critic.criticable.name %></td>
+            <td><%= link_to 'Show', critic %></td>
+            <td><%= link_to 'Edit', edit_critic_path(critic) %></td>
+            <td><%= link_to 'Destroy', critic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+
+    <br>
+
+    <%= link_to 'New critic', new_critic_path, class: "btn btn--primary btn--fit-content" %>
+  </div>
+</section>
